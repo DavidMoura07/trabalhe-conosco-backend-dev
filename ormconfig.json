@@ -1,0 +1,10 @@
+{
+  "type": "postgres",
+  "host": "stampy.db.elephantsql.com",
+  "port": 5432,
+  "username": "rnbafcfo",
+  "password": "KkKjiSThqguZXpfkNAyO7zwcVXBLaJAw",
+  "database": "rnbafcfo",
+  "entities":  ["src/**/**.entity{.ts,.js}"],
+  "synchronize": true
+}
