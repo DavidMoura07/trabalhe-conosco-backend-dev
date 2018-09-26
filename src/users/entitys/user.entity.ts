@@ -3,7 +3,7 @@ import { Entity, Column, PrimaryColumn } from 'typeorm';
 @Entity()
 export class User {
   @PrimaryColumn()
-  id: number;
+  id: string;
 
   @Column()
   name: string;
@@ -11,7 +11,10 @@ export class User {
   @Column()
   username: string;
 
-  @Column('int')
+  @Column({
+    type: 'int',
+    nullable: true,
+  })
   priority: number;
 
 }
