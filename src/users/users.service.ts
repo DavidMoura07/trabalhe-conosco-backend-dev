@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, InsertResult } from 'typeorm';
 import { User } from './entitys/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
+import * as FastCsv from 'fast-csv';
 
 @Injectable()
 export class UsersService {
@@ -34,9 +35,29 @@ export class UsersService {
   }
 
   async delete(id: string): Promise<User> {
+    console.log('DELETE:  ' + id);
     const userToRemove: User = await this.findOne(id);
     const deletedUser = this.userRepository.remove(userToRemove);
     return await deletedUser;
+  }
+
+  async PopulatefromFile(arquivo: string){
+    let i = 0;
+    // tslint:disable-next-line:prefer-const
+    let users: CreateUserDto[];
+    FastCsv
+    .fromPath('./src/database/csv/' + arquivo)
+    .on('data',  async data => {
+        const user: CreateUserDto = new CreateUserDto(data[0], data[1], data[2], 0);
+        const newUser = this.userRepository.save(user);
+        users.push(await newUser);
+        i++;
+    })
+    .on('end', () => {
+        // tslint:disable-next-line:no-console
+        console.log('Database successfully populated!!!\nWas inserted ' + i + ' new rows');
+        return users;
+    });
   }
 
 }

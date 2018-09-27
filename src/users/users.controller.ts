@@ -1,6 +1,7 @@
-import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Delete, Patch } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
+import { PopulateDb } from 'database/populate-db';
 
 @Controller('users')
 export class UsersController {
@@ -27,7 +28,13 @@ export class UsersController {
   }
 
   @Delete()
-  delete(@Param('id') id){
+  delete(@Body('id') id){
+    console.log('CONTROLLER: ' + id);
     return this.userService.delete(id);
+  }
+
+  @Patch()
+  populateDb(){
+    return this.userService.PopulatefromFile('users_10.csv');
   }
 }

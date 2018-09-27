@@ -1,6 +1,6 @@
 {
   "name": "picpay",
-  "version": "0.1.0",
+  "version": "0.2.2",
   "description": "Teste back-end PicPay",
   "author": "David M Marques",
   "license": "MIT",
@@ -25,6 +25,7 @@
     "@nestjs/common": "^5.1.0",
     "@nestjs/core": "^5.1.0",
     "@nestjs/typeorm": "^5.2.2",
+    "fast-csv": "^2.4.1",
     "pg": "^7.4.3",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.2.2",
