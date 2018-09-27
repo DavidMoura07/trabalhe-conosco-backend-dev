@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# 0.3.0 (2018-09-27)
+
+
+### Bug Fixes
+
+* 🐛 Delete ([ed3b5ab](https://github.com/DavidMoura07/trabalhe-conosco-backend-dev/commit/ed3b5ab))
+
+
+### Features
+
+* 🎸 CRUD ([9a4441d](https://github.com/DavidMoura07/trabalhe-conosco-backend-dev/commit/9a4441d))
+
+
+
 <a name="0.2.2"></a>
 ## [0.2.2](https://github.com/DavidMoura07/trabalhe-conosco-backend-dev/compare/v0.2.1...v0.2.2) (2018-09-27)
 
