@@ -17,7 +17,7 @@ import { AuthModule } from './auth/auth.module';
 // };
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), UsersModule, AuthModule],
+  imports: [TypeOrmModule.forRoot(), UsersModule],
   controllers: [AppController],
   providers: [AppService],
 })

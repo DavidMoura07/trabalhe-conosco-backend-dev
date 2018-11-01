@@ -11,20 +11,12 @@ export class UsersService {
   ) {}
 
   async create(createUserDto) {
-    // Verifica se já existe, caso sim, atualiza o usuario. Menor desempenho
-    // const createdUser = this.userRepository.save(createUserDto);
-
-    // Apenas insere, caso já exista retorna um erro. Maior desempenho.
     const createdUser = await this.userRepository.insert(createUserDto);
     return await createdUser;
   }
 
   async findOne(userId: string): Promise<User> {
     return await this.userRepository.findOne(userId);
-  }
-
-  async findAll(): Promise<User[]> {
-    return await this.userRepository.find();
   }
 
   async search(keyword: string, pag: number) {
