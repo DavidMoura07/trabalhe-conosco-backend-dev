@@ -1,6 +1,6 @@
 {
   "name": "picpay",
-  "version": "0.1.0",
+  "version": "0.4.0",
   "description": "Teste back-end PicPay",
   "author": "David M Marques",
   "license": "MIT",
@@ -19,12 +19,24 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "webpack": "webpack --config webpack.config.js",
     "commit:push": "git add . && git-cz && npm run release && git push",
-    "release": "standard-version"
+    "release": "standard-version",
+    "persistentdb": "docker run -p 5432:5432 -e POSTGRES_USER=picpay -e POSTGRES_PASSWORD=picpay -e POSTGRES_DB=picpay -v postgresql:/var/lib/postgresql -v postgresql_data:/var/lib/postgresql/data -d postgres:alpine",
+    "testdb": "docker run -p 5432:5432 -e POSTGRES_USER=picpay -e POSTGRES_PASSWORD=picpay -e POSTGRES_DB=picpay -d postgres:alpine",
+    "stopdocker": "docker stop $(docker ps -q -a) && docker rm $(docker ps -q -a)",
+    "restart": "npm run stopdocker && sleep 4 && npm run testdb && sleep 5 && npm run start",
+    "psql": "psql postgres://picpay:picpay@localhost:5432/picpay",
+    "restartcontainer": "docker rm $(docker container ls -qa) && docker-compose up",
+    "veridcontainer": "docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' postrgres"
   },
   "dependencies": {
     "@nestjs/common": "^5.1.0",
     "@nestjs/core": "^5.1.0",
+    "@nestjs/passport": "^5.1.0",
+    "@nestjs/swagger": "^2.5.1",
     "@nestjs/typeorm": "^5.2.2",
+    "fast-csv": "^2.4.1",
+    "passport": "^0.4.0",
+    "passport-http-bearer": "^1.0.1",
     "pg": "^7.4.3",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.2.2",

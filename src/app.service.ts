@@ -3,6 +3,6 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
   root(): string {
-    return 'Hello World!';
+    return 'The documentation can be found on /doc';
   }
 }

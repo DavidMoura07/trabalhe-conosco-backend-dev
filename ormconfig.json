@@ -1,10 +1,10 @@
 {
   "type": "postgres",
-  "host": "stampy.db.elephantsql.com",
+  "host": "localhost",
   "port": 5432,
-  "username": "rnbafcfo",
-  "password": "KkKjiSThqguZXpfkNAyO7zwcVXBLaJAw",
-  "database": "rnbafcfo",
+  "username": "picpay",
+  "password": "picpay",
+  "database": "picpay",
   "entities":  ["src/**/**.entity{.ts,.js}"],
   "synchronize": true
 }
