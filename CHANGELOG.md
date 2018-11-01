@@ -17,10 +17,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 
-<a name="0.3.0"></a>
-# 0.3.0 (2018-09-27)
-
-
 ### Bug Fixes
 
 * 🐛 Delete ([ed3b5ab](https://github.com/DavidMoura07/trabalhe-conosco-backend-dev/commit/ed3b5ab))
