@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, InsertResult } from 'typeorm';
 import { User } from './entitys/user.entity';
 import * as Csv from 'fast-csv';
+import * as fs from 'fs';
 
 @Injectable()
 export class UsersService {

@@ -1,4 +1,4 @@
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiModelProperty, ApiModelPropertyOptional } from '@nestjs/swagger';
 
 export class CreateUserDto {
   constructor(id, name, username, priority) {
@@ -14,6 +14,6 @@ export class CreateUserDto {
   readonly name: string;
   @ApiModelProperty()
   readonly username: string;
-  @ApiModelProperty()
+  @ApiModelPropertyOptional()
   readonly priority: number;
 }
