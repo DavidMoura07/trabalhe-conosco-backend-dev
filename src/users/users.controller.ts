@@ -7,6 +7,8 @@ import {
   Put,
   Delete,
   UseGuards,
+  UseInterceptors,
+  CacheInterceptor,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -21,6 +23,7 @@ import {
 
 @ApiBearerAuth()
 @ApiUseTags('users')
+@UseInterceptors(CacheInterceptor)
 @Controller('users')
 export class UsersController {
   constructor(private readonly userService: UsersService) {}
