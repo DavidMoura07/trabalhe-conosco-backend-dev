@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# 0.5.0 (2018-11-05)
+
+
+### Bug Fixes
+
+* 🐛 authentication ([366393f](https://github.com/DavidMoura07/trabalhe-conosco-backend-dev/commit/366393f))
+* 🐛 Delete ([ed3b5ab](https://github.com/DavidMoura07/trabalhe-conosco-backend-dev/commit/ed3b5ab))
+* 🐛 page ([afcd50a](https://github.com/DavidMoura07/trabalhe-conosco-backend-dev/commit/afcd50a))
+* 🐛 vaiables ([c85fff8](https://github.com/DavidMoura07/trabalhe-conosco-backend-dev/commit/c85fff8))
+
+
+### Features
+
+* 🎸 auth ([10510ab](https://github.com/DavidMoura07/trabalhe-conosco-backend-dev/commit/10510ab))
+* 🎸 cache ([dab868e](https://github.com/DavidMoura07/trabalhe-conosco-backend-dev/commit/dab868e))
+* 🎸 CRUD ([9a4441d](https://github.com/DavidMoura07/trabalhe-conosco-backend-dev/commit/9a4441d))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/DavidMoura07/trabalhe-conosco-backend-dev/compare/v0.3.1...v0.4.0) (2018-11-01)
 
