@@ -32,7 +32,7 @@ export class UsersService {
       keyword += key;
       keyword += '%';
     });
-    pag > 0 ? pag-- : pag;
+    if (pag > 0) pag--;
     return await this.userRepository
       .createQueryBuilder('user')
       .select()
