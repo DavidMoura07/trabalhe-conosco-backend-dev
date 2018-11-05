@@ -17,7 +17,12 @@ export class UsersService {
   }
 
   async findOne(userId: string): Promise<User> {
-    return await this.userRepository.findOne(userId);
+    const user = await this.userRepository.findOne(userId);
+    if (user) {
+      return user;
+    } else {
+      return null;
+    }
   }
 
   async search(keyword: string, pag: number) {
@@ -49,8 +54,7 @@ export class UsersService {
 
   async delete(id: string): Promise<User> {
     const userToRemove: User = await this.findOne(id);
-    const deletedUser = this.userRepository.remove(userToRemove);
-    return await deletedUser;
+    return await this.userRepository.remove(userToRemove);
   }
 
   async loadListaRelevancia() {
