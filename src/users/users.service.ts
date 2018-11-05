@@ -12,7 +12,7 @@ export class UsersService {
   ) {}
 
   async create(createUserDto) {
-    const createdUser = await this.userRepository.insert(createUserDto);
+    const createdUser = this.userRepository.insert(createUserDto);
     return await createdUser;
   }
 
@@ -66,7 +66,7 @@ export class UsersService {
 
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < lists.length; i++) {
-      const csvStream = Csv.fromPath(path + lists[i]).on('data', async data => {
+      Csv.fromPath(path + lists[i]).on('data', async data => {
         data.forEach(idUser => {
           this.setPriority(idUser, i + 1);
         });

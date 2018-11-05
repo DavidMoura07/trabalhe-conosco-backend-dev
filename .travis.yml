@@ -1,8 +1,6 @@
 addons:
   sonarcloud:
     projectkey: 'DavidMoura07_trabalhe-conosco-backend-dev'
-    organization: 'davidmoura07-github' # the key of the org you chose at step #3
-    sources: '\'
     token:
       secure: 1eeb6405e1df49f678b70afd7e79d2c19038fb40 # encrypted value of your token
 script:
