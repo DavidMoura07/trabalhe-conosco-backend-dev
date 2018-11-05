@@ -12,8 +12,7 @@ export class UsersService {
   ) {}
 
   async create(createUserDto) {
-    const createdUser = this.userRepository.insert(createUserDto);
-    return await createdUser;
+    return await this.userRepository.insert(createUserDto);
   }
 
   async findOne(userId: string): Promise<User> {
@@ -54,7 +53,11 @@ export class UsersService {
 
   async delete(id: string): Promise<User> {
     const userToRemove: User = await this.findOne(id);
-    return await this.userRepository.remove(userToRemove);
+    if (userToRemove) {
+      return await this.userRepository.remove(userToRemove);
+    } else {
+      return userToRemove;
+    }
   }
 
   async loadListaRelevancia() {
