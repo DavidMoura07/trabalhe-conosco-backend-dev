@@ -2,8 +2,6 @@ import { Injectable, Inject } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, InsertResult } from 'typeorm';
 import { User } from './entitys/user.entity';
-import * as Csv from 'fast-csv';
-import * as fs from 'fs';
 
 @Injectable()
 export class UsersService {
@@ -58,24 +56,6 @@ export class UsersService {
     } else {
       return userToRemove;
     }
-  }
-
-  async loadListaRelevancia() {
-    const path: string = './src/database/relevancia/';
-    const lists: Array<string> = [
-      'lista_relevancia_1.txt',
-      'lista_relevancia_2.txt',
-    ];
-
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < lists.length; i++) {
-      Csv.fromPath(path + lists[i]).on('data', async data => {
-        data.forEach(idUser => {
-          this.setPriority(idUser, i + 1);
-        });
-      });
-    }
-    return 'Relevancias alteradas';
   }
 
   async setPriority(userId: string, priority: number) {

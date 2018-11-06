@@ -1,5 +1,0 @@
-no terminal local digite:
-psql -h localhost -p 5432 -U picpay -W picpay
-COPY "user" (id,name,username) from '/var/lib/postgresql/csv/users_500.csv' DELIMITERS ',' CSV;
-
-Obs: o arquivo CSV ja deve estar mapeado para um volume dentro do container do postgres

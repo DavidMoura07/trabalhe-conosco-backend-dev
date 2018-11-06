@@ -2,7 +2,7 @@
 version: '3.1'
 
 services:
-  db:
+  postgres:
     image: postgres
     restart: always
     environment:
@@ -15,8 +15,32 @@ services:
     ports:
       - 5432:5432
 
-  adminer:
-    image: adminer
-    restart: always
+  configure_db:
+    build: ./database
+    depends_on:
+      - postgres
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: user
+      DB_NAME: dbname
+      PGPASSWORD: passwd
+      SET_USERS: 'true'
+      SET_PRIORITY: 'true'
+      CREATE_DATABASE: 'true'
+
+  web:
+    build: .
+    command: npm start
+    volumes:
+      - ./priority:/src/database/priority/
     ports:
-      - 8080:8080
+      - '3000:3000'
+    depends_on:
+      - postgres
+      - configure_db
+    environment:
+      DB_HOST: postgres
+      DB_USER: picpay
+      DB_PASSWORD: picpay
+      DB_SCHEMA: picpay
