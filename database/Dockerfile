@@ -7,9 +7,7 @@ COPY . .
 # installing postgres
 RUN \
   apt-get update && \
-  echo y | apt-get install postgresql wget gzip
+  echo y | apt-get install postgresql wget gzip && \
+  chmod +x configureDB.sh
 
-ENTRYPOINT [ "chmod", "+x", "configureDB.sh" ]
-
-# configuring database
-RUN ./configureDB.sh
+CMD [ "./configureDB.sh" ]

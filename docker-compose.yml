@@ -1,5 +1,5 @@
 # Use postgres/example user/password credentials
-version: '3.1'
+version: '3.7'
 
 services:
   postgres:
@@ -14,23 +14,31 @@ services:
       - ./postgresql_data:/var/lib/postgresql/data
     ports:
       - 5432:5432
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "localhost", "-p", "5432", "-d", "picpay", "-U", "picpay"]
+      timeout: 3s
+      retries: 10
+      start_period: 20s
 
   configure_db:
     build: ./database
+    image: daviddmarques/picpay_configure_db:1.0.0
+    command: ["./configureDB.sh"]
     depends_on:
       - postgres
     environment:
       DB_HOST: postgres
       DB_PORT: 5432
-      DB_USER: user
-      DB_NAME: dbname
-      PGPASSWORD: passwd
+      DB_USER: picpay
+      DB_NAME: picpay
+      PGPASSWORD: picpay
+      CREATE_DATABASE: 'true'
       SET_USERS: 'true'
       SET_PRIORITY: 'true'
-      CREATE_DATABASE: 'true'
 
   web:
     build: .
+    image: daviddmarques/picpay_app:1.0.0
     command: npm start
     volumes:
       - ./priority:/src/database/priority/

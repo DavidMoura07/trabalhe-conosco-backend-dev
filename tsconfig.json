@@ -13,11 +13,6 @@
     "outDir": "./dist",
     "baseUrl": "./src"
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "include": ["src/**/*", "test/users.service.e2e-spec.ts"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }
